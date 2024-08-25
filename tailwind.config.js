@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} **/
+
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   mode:'jit',
@@ -24,7 +25,7 @@ module.exports = {
         opensans:["Open Sans","sans-serif"]
       },
       content:{
-        brush:"url('./assets/backr.jpg')",
+        brush:"url('./assets/art3.jpg')",
         pic:"url('./assets/Pro.jpeg')",
       }
     },
