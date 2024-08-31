@@ -5,6 +5,8 @@ import LineGradient from './components/LineGradient'
 import { useEffect, useState } from "react";
 import useMediaQuery from "./hooks/useMediaQuery"
 import MySkills from "./screens/MySkills";
+import Projects from "./screens/Projects";
+import Contact from "./screens/Contact";
 
 function App() {
   const [selectedPage,setSelectedPage] = useState("home");
@@ -34,6 +36,13 @@ function App() {
     <LineGradient/>
     <div className="w-5/6 mx-auto md:h-full">
     <MySkills/>
+    </div>
+    <div className="w-5/6 mx-auto ">
+    <Projects/>
+    </div>
+    <LineGradient/>
+    <div className="w-5/6 mx-auto ">
+    <Contact/>
     </div>
     </div>
   );
