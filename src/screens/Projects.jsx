@@ -16,11 +16,11 @@ const Projects = () => {
     }
 
     
-    const Project = ({title})=>{
+    const Project = ({name,title,description,projectLink})=>{
         const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90
         transition duration-500 bg-grey z-30 flex flex-col justify-center
         items-center text-center p-16 text-deep-blue`
-        const projectTitle = title.split(" ").join("-").toLowerCase();
+        const projectTitle = name.split(" ").join("-").toLowerCase();
         return (
             <motion.div 
             // variants={projectVariant}
@@ -30,8 +30,9 @@ const Projects = () => {
                 >
                     <p className='text-2xl font-playfair'>{title}</p>
                 <p className='mt-7'>
-                    Projects
+                   {description}
                 </p>
+                <a href={projectLink}><h4 className='text-blue   capitalize'>View Project</h4></a>
                 </div>
                 <img src={require(`../assets/${projectTitle}.jpg`)} alt={projectTitle}/>
             </motion.div>
@@ -73,13 +74,27 @@ const Projects = () => {
                     >
                         USER INTERFACES
                     </div>
-                    <Project title="project 1"/>
+                    <Project 
+                    name='project 1'
+                    title="E-society Administrator"
+                    description='Managing Payments and Events'
+                    projectLink='https://github.com/Thapelo-git/e-societyAdmin-master'
+                    />
                     
-                    <Project title="project 2"/>
+                    <Project name="project 2"
+                       title="Medico App"
+                       description=' Medico connects students with access to first aid and health measures'
+                       projectLink='https://github.com/washington786/medico'/>
 
-                    <Project title="project 3"/>
+                    <Project name="project 3"
+                    title="Hotel App"
+                    description='#React Native'
+                    projectLink='https://github.com/Thapelo-git/hotelApp'/>
                     
-                    <Project title="project 5"/>
+                    <Project name="project 5"
+                    title="Prison Management App"
+                    description='#React Native'
+                    projectLink='https://github.com/Thapelo-git/Prison_Management_System'/>
                 </motion.div>
                 </div>
     </section>

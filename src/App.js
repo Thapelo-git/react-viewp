@@ -7,6 +7,7 @@ import useMediaQuery from "./hooks/useMediaQuery"
 import MySkills from "./screens/MySkills";
 import Projects from "./screens/Projects";
 import Contact from "./screens/Contact";
+import Footer from "./screens/Footer";
 
 function App() {
   const [selectedPage,setSelectedPage] = useState("home");
@@ -34,9 +35,10 @@ function App() {
     <Landing setSelectedPage={setSelectedPage}/>
     </div>
     <LineGradient/>
-    <div className="w-5/6 mx-auto md:h-full">
+    <div className="w-5/6 mx-auto md:h-full ">
     <MySkills/>
     </div>
+   
     <div className="w-5/6 mx-auto ">
     <Projects/>
     </div>
@@ -44,6 +46,7 @@ function App() {
     <div className="w-5/6 mx-auto ">
     <Contact/>
     </div>
+    <Footer/>
     </div>
   );
 }

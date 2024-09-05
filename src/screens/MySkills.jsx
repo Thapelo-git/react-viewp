@@ -7,7 +7,7 @@ import Linkedin from '../assets/linkedin.png'
 const MySkills = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width:1060px")
   return (
-    <section id='skills' className='pt-10 pb-24'>
+    <section id='skills' className='pt-10 '>
         <div className='md:flex md:justify-between md:gap-16 mt-32'>
         <motion.div 
                  className='md:w-1/3'
@@ -97,9 +97,9 @@ const MySkills = () => {
                 </div>
                
         </div>
-                <div className='md:flex md:justify-between mt-16 gap-32'>
+                <div className='md:flex md:justify-between mt-16 gap-32 '>
                 <motion.div 
-                 className='md:w-1/3'
+                 className='md:w-4/5'
                 initial="hidden" whileInView="visible" viewport={{once:true,amount:0.5}}
                 transition={{duration:0.5}} variants={{
                     hidden:{opacity:0,y:50},
@@ -109,12 +109,25 @@ const MySkills = () => {
                         <div className='z-10'>
                         <p className='font-playfair font-semibold text-3xl mt-3'>Experience</p>
                         </div>
-                        <div className='w-1/2 md:w-3/4 h-32 bg-red absolute right-0 top-0 z-[-1]'/>
+                        <div className='w-1/2 md:w-3/4 h-32 bg-red absolute right-0 top-0 z-[-1]
+                            '>
+                            <div className=' absolute flex justify-center inset-x-0 bottom-0 '>
+                            <p className='font-playfair text-md '>Mobile and Web Development Trainee</p>
+                            </div>
+                       
+                        </div>
                     </div>
-                    <p className='mt-5'>
-                        dgfhgkj
-                    </p>
+                    
+                   
                 </motion.div>
+                <div className='basis-auto'>
+                    <p className='mt-5  '>
+                        As a seasoned technologist,my expertise spans a range of cutting-edge 
+                        technologies,including Raect.js,React Native ,Node.Js ,Express.Js and MongoDb.
+                        With a comprehensive understanding of these modern tools,I am well-equipped to design
+                         and develop innovative web solutions that drive business success.
+                    </p>
+                    </div>
                 </div>
     </section>
   )

@@ -43,7 +43,7 @@ const Landing = (setSelectedPage) => {
                        
                      before:absolute before:-left[-25px]
                     before:-top-[70px] before:z-[-1] '>
-                       
+                       Chaba
                     </span>
                   
                     </p>
@@ -66,15 +66,15 @@ const Landing = (setSelectedPage) => {
                 href="#contact">
                     Contact
                 </AnchorLink>
-                <AnchorLink 
+                <div
                 className='rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5'
-                onClick={()=>setSelectedPage={setSelectedPage}} 
-                href="#contact">
+                 
+       >
                     <div className='bg-deep-blue hover:text-red transition duration-500
                     w-full h-full flex items-center justify-center font-playfair px-10'>
-                        CV
+                        <a href='https://silver-gloriana-57.tiiny.site'>CV</a>
                     </div>
-                </AnchorLink>
+                </div>
                 </motion.div>
                 <motion.div 
                   className='flex mt-5 justify-center md:justify-start'
