@@ -27,9 +27,9 @@ function App() {
     <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage}
     isTopOfPage={isTopOfPage}/>
     <div className="w-5/6 mx-auto md:h-full">
-    {isAboveMediumScreens &&(
+    {/* {isAboveMediumScreens &&(
       <DotGroup selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-    )} 
+    )}  */}
     
     <Landing setSelectedPage={setSelectedPage}/>
     </div>

@@ -2,6 +2,8 @@ import React from 'react'
 import LineGradient from '../components/LineGradient'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion' 
+import SocialMediaIcons from '../components/SocialMediaIcons'
+import { Email, Phone } from '@mui/icons-material'
 
 
 const Contact = () => {
@@ -18,6 +20,7 @@ const Contact = () => {
             e.preventDefault();
         }
     }
+    
   return (
     <section id='contact' className='py-48'>
         <motion.div 
@@ -31,8 +34,8 @@ const Contact = () => {
                 <p className='font-playfair font-semibold text-4xl '>
                     <span className='text-red'>CONTACT ME</span>
                 </p>
-                <div className='flex md:justify-end my-5'>
-                <LineGradient width='mx-auto w-2/4'/>
+                <div className='flex  my-5'>
+                <LineGradient width=' w-2/4'/>
                 </div>
                 </div>
               
@@ -40,14 +43,28 @@ const Contact = () => {
                 </motion.div>
                 <div className='md:flex md:justify-between gap-16 mt-5'>
                 <motion.div
-                className='basis-1/2 flex justify-center'
+                className='basis-1/2 '
                 initial="hidden" whileInView="visible" viewport={{once:true,amount:0.5}}
                 transition={{duration:0.5}} variants={{
                     hidden:{opacity:0,y:50},
                     visible:{opacity:1,y:0}
                 }}
                 >
-                    <img src={require("../assets/landscape.jpg")} alt='landscape'/>
+                    <div className='flex col-span-2 my-4 gap-5'>
+                    <Email/>
+                    <p>chabathapelo1@gmail.com</p>
+                    
+                    </div>
+                    <div className='flex col-span-2 my-4 gap-5'>
+                    <Phone/>
+                    <p>0766465828</p>
+                    </div>
+                    
+                    <div className='flex justify-start ml-0'>
+                    <SocialMediaIcons/>
+                    </div>
+                    {/* <img src={require("../assets/landscape.jpg")} alt='landscape'/> */}
+                    
                 </motion.div>
                 <motion.div
                 className='basis-1/2 mt-10 md:mt-0'

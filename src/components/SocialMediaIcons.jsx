@@ -6,7 +6,7 @@ const SocialMediaIcons = () => {
     <div className='flex justify-center md:justify-start my-10 gap-7'>
         <a
         className='hover:opacity-50 transition duration-500'
-        href='https://www.linkedin.com'
+        href='https://www.linkedin.com/in/thapelo-chaba-444554224'
         target='_blank'
         rel='noreferrer'
 
@@ -17,7 +17,7 @@ const SocialMediaIcons = () => {
         </a>
         <a
         className='hover:opacity-50 transition duration-500'
-        href='https://www.facebook.com'
+        href='https://web.facebook.com/thapelo.chaba.35/'
         target='_blank'
         rel='noreferrer'
 
@@ -26,7 +26,7 @@ const SocialMediaIcons = () => {
         </a>
         <a
         className='hover:opacity-50 transition duration-500'
-        href='https://www.github.com'
+        href='https://github.com/Thapelo-git'
         target='_blank'
         rel='noreferrer'
 
