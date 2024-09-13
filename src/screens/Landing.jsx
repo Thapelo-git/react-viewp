@@ -48,8 +48,10 @@ const Landing = (setSelectedPage) => {
                   
                     </p>
                     <p className='mt-10 mb-7 text-sm text-center md:text-start'>
-                    Skilled Full-Stack Web Developer with a strong proficiency in React,
-                    capable of handling all aspects of web developmen, from concept to deployment.
+                    Skilled Full-Stack developer,I possess expertise in both front-end 
+                    and back-end development, with a strong focus on  ReactJS,React Native,as well as 
+                    the MERN (MongoDB,Express,React,Node.js) stack.
+                   
                         </p>
                 </motion.div>
                 <motion.div

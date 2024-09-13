@@ -123,7 +123,7 @@ const MySkills = () => {
                 <div className='basis-auto'>
                     <p className='mt-5  '>
                         As a seasoned technologist,my expertise spans a range of cutting-edge 
-                        technologies,including Raect.js,React Native ,Node.Js ,Express.Js and MongoDb.
+                        technologies,including React.js,React Native ,Node.Js ,Express.Js and MongoDb.
                         With a comprehensive understanding of these modern tools,I am well-equipped to design
                          and develop innovative web solutions that drive business success.
                     </p>

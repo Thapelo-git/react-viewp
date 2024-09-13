@@ -95,8 +95,9 @@ const Contact = () => {
                         <input 
                         className='w-full bg-grey font-semibold text-deep-blue placeholder-opaque-black
                         p-3 mt-5'
-                        type='text' placeholder='EMAIL' {...register("email",{
+                        type='email' placeholder='EMAIL' {...register("email",{
                             required:true,
+                           
                             pattern:/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                         })}
                         />
