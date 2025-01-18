@@ -4,12 +4,20 @@ import { motion } from 'framer-motion'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Profile from '../assets/Pro.jpeg'
 import SocialMediaIcons from '../components/SocialMediaIcons'
+import Back from '../assets/backAni.json'
+
+import steps from '../assets/steps.json'
+import Lottie from 'lottie-react'
 const Landing = (setSelectedPage) => {
     const isAboveMediumScreens = useMediaQuery("(min-width:1060px)")
   return (
 
     <section id='home' className='md:flex md:justify-between md:items-center md:h-full gap-16 py-10'>
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+        <Lottie animationData={steps}/>
+      </div>
         <div className='md:order-2 flex justify-center basis-3/5 z-10 mt-16 md:mt-32'>
+        
             {isAboveMediumScreens?(
                 <div
                 className='relative z-0 ml-20 before:absolute before:-top-0 before:-left-0
@@ -28,6 +36,9 @@ const Landing = (setSelectedPage) => {
                 src={Profile}/>
             )}
 </div>
+{/* <div className="absolute top-0 left-0 w-64 h-64 z-0">
+        <Lottie animationData={Back}/>
+      </div> */}
             <div className='z-30 basic-2/5 mt-12 md:mt-32'>
                 <motion.div 
                 initial="hidden" whileInView="visible" viewport={{once:true,amount:0.5}}
@@ -35,7 +46,10 @@ const Landing = (setSelectedPage) => {
                     hidden:{opacity:0,x:-50},
                     visible:{opacity:1,x:0}
                 }}>
-                    {/* xs:before:content-brush */}
+                         {/* <div className="absolute  w-64 h-64 z-0">
+        <Lottie animationData={Back}/>
+      </div>
+                    xs:before:content-brush */}
                     <p className='text-6xl font-playfair z-10
                     text-center md:text-start'>Thapelo {" "}
                   
@@ -78,6 +92,7 @@ const Landing = (setSelectedPage) => {
                     </div>
                 </div>
                 </motion.div>
+           
                 <motion.div 
                   className='flex mt-5 justify-center md:justify-start'
                 initial="hidden" whileInView="visible" viewport={{once:true,amount:0.5}}
@@ -87,8 +102,9 @@ const Landing = (setSelectedPage) => {
                 }}>
                     <SocialMediaIcons/>
                 </motion.div>
-            
+          
         </div>
+        
     </section>
   )
 }

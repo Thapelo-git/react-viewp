@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import LineGradient from '../components/LineGradient'
-
+import Lottie from 'lottie-react'
+import smoke from '../assets/smoke.json'
 const Projects = () => {
 
     const container ={
@@ -96,7 +97,11 @@ const Projects = () => {
                     description='#React Native'
                     projectLink='https://github.com/Thapelo-git/Prison_Management_System'/>
                 </motion.div>
+                {/* <div className="absolute top-0 left-0 w-full h-full z-0">
+        <Lottie animationData={smoke} />
+      </div> */}
                 </div>
+          
     </section>
   )
 }

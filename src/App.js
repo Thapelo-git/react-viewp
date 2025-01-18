@@ -8,7 +8,8 @@ import MySkills from "./screens/MySkills";
 import Projects from "./screens/Projects";
 import Contact from "./screens/Contact";
 import Footer from "./screens/Footer";
-
+import Line from './assets/line.json'
+import Lottie from "lottie-react";
 function App() {
   const [selectedPage,setSelectedPage] = useState("home");
   const [isTopOfPage,setIsTopOfPage]=useState(true);
@@ -23,6 +24,21 @@ function App() {
   return () => window.removeEventListener("scroll",handleScroll);
   },[]);
 
+  const [speed, setSpeed] = useState(1); // Default speed is normal (1)
+
+  const handleSpeedChange = (event) => {
+    setSpeed(event.target.value); // Update speed dynamically
+  };
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, // Controls autoplay
+    animationData: Line,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+    speed: parseFloat(speed), // Dynamically apply the speed
+  };
   return (
     <div className="app bg-deep-blue">
     <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage}
@@ -34,18 +50,20 @@ function App() {
     
     <Landing setSelectedPage={setSelectedPage}/>
     </div>
-    <LineGradient/>
+    {/* <LineGradient/> */}
+    <Lottie animationData={Line}/>
     <div className="w-5/6 mx-auto md:h-full ">
     <MySkills/>
     </div>
-   
+   <Lottie animationData={Line}/>
     <div className="w-5/6 mx-auto ">
     <Projects/>
     </div>
-    <LineGradient/>
+    <Lottie animationData={Line}/>
     <div className="w-5/6 mx-auto ">
     <Contact/>
     </div>
+    <Lottie animationData={Line}/>
     <Footer/>
     </div>
   );

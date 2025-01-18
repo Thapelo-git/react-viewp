@@ -3,7 +3,8 @@ import LineGradient from '../components/LineGradient'
 import useMediaQuery from '../hooks/useMediaQuery'
 import { motion } from 'framer-motion'
 import Linkedin from '../assets/linkedin.png'
-
+import smoke from '../assets/smoke.json'
+import Lottie from 'lottie-react'
 const MySkills = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width:1060px")
   return (
@@ -129,6 +130,7 @@ const MySkills = () => {
                     </p>
                     </div>
                 </div>
+                
     </section>
   )
 }
