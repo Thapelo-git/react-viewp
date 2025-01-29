@@ -62,9 +62,8 @@ const Landing = (setSelectedPage) => {
                   
                     </p>
                     <p className='mt-10 mb-7 text-sm text-center md:text-start'>
-                    Skilled Full-Stack developer,I possess expertise in both front-end 
-                    and back-end development, with a strong focus on  ReactJS,React Native,as well as 
-                    the MERN (MongoDB,Express,React,Node.js) stack.
+                    1+ year experience in React Native & React JS(MERN stack).Freelance background in 
+                    React,Node,& PostgreSQL.Currently interning with C# .NET,EF Core,& SQl
                    
                         </p>
                 </motion.div>
@@ -86,10 +85,10 @@ const Landing = (setSelectedPage) => {
                 className='rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5'
                  
        >
-                    <div className='bg-deep-blue hover:text-red transition duration-500
+                    {/* <div className='bg-deep-blue hover:text-red transition duration-500
                     w-full h-full flex items-center justify-center font-playfair px-10'>
                         <a href='https://silver-gloriana-57.tiiny.site'>CV</a>
-                    </div>
+                    </div> */}
                 </div>
                 </motion.div>
            
