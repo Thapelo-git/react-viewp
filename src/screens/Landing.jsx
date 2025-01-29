@@ -63,7 +63,7 @@ const Landing = (setSelectedPage) => {
                     </p>
                     <p className='mt-10 mb-7 text-sm text-center md:text-start'>
                     1+ year experience in React Native & React JS(MERN stack).Freelance background in 
-                    React,Node,& PostgreSQL.Currently interning with C# .NET,EF Core,& SQl
+                    React,Node,& PostgreSQL.Currently interning with C# .NET,EF Core,SQl,ASP.NET Core MVC, & Blazor
                    
                         </p>
                 </motion.div>

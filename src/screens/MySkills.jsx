@@ -110,7 +110,7 @@ const MySkills = () => {
                   </div>
                   <div className='flex justify-center items-center shadow bg-deep-blue
                   p-4 shadow-lg shadow-cyan-500/50 w-20 h-20 my-2'>
-                      <img alt='node' src={require('../assets/net.png')} className='w-10' />
+                      <img alt='node' src={require('../assets/blazor1.png')} className='w-10' />
                   </div>
 
               </motion.div>
@@ -173,7 +173,7 @@ const MySkills = () => {
                 </motion.div>
                 <div className='basis-auto'>
                     <p className='mt-5  '>
-                    Utilizing ASP.NET Core MVC,C#,EF Core, and SQL to deliver high-quality software solutions
+                    Building websites and services with  ASP.NET Core MVC,C#,EF Core,SQL,& Blazor to deliver high-quality software solutions
                     </p>
                     </div>
                 </div>
