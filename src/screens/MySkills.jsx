@@ -24,7 +24,7 @@ const MySkills = () => {
 
                 <p className='mt-10 mb-7'>
                     Node.js ,JavaScript,C# ,React,React Native,
-                    PostgreSQL,EF Core, ASP.NET Core MVC
+                    PostgreSQL,EF Core, ASP.NET Core MVC,Blazor
                 </p>
                 </motion.div>
                 <div className='mt-16 md:mt-0 flex col-span-3 gap-4'>

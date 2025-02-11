@@ -51,13 +51,13 @@ const Landing = (setSelectedPage) => {
       </div>
                     xs:before:content-brush */}
                     <p className='text-6xl font-playfair z-10
-                    text-center md:text-start'>Thapelo {" "}
+                    text-center md:text-start'>Software {" "}
                   
                     <span className='xs:relative xs:text-white xs:font-semibold z-20
                        
                      before:absolute before:-left[-25px]
                     before:-top-[70px] before:z-[-1] '>
-                       Chaba
+                       Developer
                     </span>
                   
                     </p>
