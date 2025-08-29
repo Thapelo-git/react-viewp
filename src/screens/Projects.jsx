@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import LineGradient from '../components/LineGradient'
 import Lottie from 'lottie-react'
 import smoke from '../assets/smoke.json'
+//https://www.codexoft.tech/
+//https://za.pinterest.com/pin/need-website-design-or-develop-website-than-hire-expert--955748352150434796/
 const Projects = () => {
 
     const container ={
@@ -17,28 +19,37 @@ const Projects = () => {
     }
 
     
-    const Project = ({name,title,description,projectLink})=>{
-        const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90
-        transition duration-500 bg-grey z-30 flex flex-col justify-center
-        items-center text-center p-16 text-deep-blue`
-        const projectTitle = name.split(" ").join("-").toLowerCase();
-        return (
-            <motion.div 
-            // variants={projectVariant}
-             className='relative'>
-                <div
-                 className={overlayStyles}
-                >
-                    <p className='text-2xl font-playfair'>{title}</p>
-                <p className='mt-7'>
-                   {description}
-                </p>
-                <a href={projectLink}><h4 className='text-blue   capitalize'>View Project</h4></a>
-                </div>
-                <img src={require(`../assets/${projectTitle}.jpg`)} alt={projectTitle}/>
-            </motion.div>
-        )
-    }   
+const Project = ({ name, title, description, projectLink }) => {
+  const projectTitle = name.split(" ").join("-").toLowerCase();
+
+  return (
+    <motion.div
+      className="relative flex flex-col items-center text-center p-4 group"
+    >
+      
+      <img
+        src={require(`../assets/${projectTitle}.jpg`)}
+        alt={projectTitle}
+        className="rounded-md shadow-lg"
+      />
+
+      
+      <div className="mt-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+        <p className="text-2xl font-playfair font-bold">{title}</p>
+        <p className="mt-2 text-sm text-gray-600">{description}</p>
+        <a
+          href={projectLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-block text-blue-600 font-semibold hover:underline"
+        >
+          View Project
+        </a>
+      </div>
+    </motion.div>
+  );
+};
+
 
   return (
     <section id='projects' className='pt-48 pb-48'>
