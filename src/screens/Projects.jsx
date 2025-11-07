@@ -1,120 +1,241 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import LineGradient from '../components/LineGradient'
 import Lottie from 'lottie-react'
 import smoke from '../assets/smoke.json'
-//https://www.codexoft.tech/
+
 //https://za.pinterest.com/pin/need-website-design-or-develop-website-than-hire-expert--955748352150434796/
+const projectData = [
+   {
+    name: 'project 4',
+    title: 'Movie App',
+    description: 'A dynamic film discovery platform featuring trending movies, advanced search, and personalized watchlists. Built with modern frontend framework and TMDB API integration.',
+    projectLink: 'https://github.com/Thapelo-git/Prison_Management_System'
+  },
+  {
+    name: 'project 5',
+    title: 'Recipe App',
+    description: 'A full-stack recipe management app with user-generated content, interactive cooking instructions, and personal collections. Features secure authentication and image upload functionality.',
+    projectLink: 'https://github.com/Thapelo-git/Recipes-Web.git'
+  },
+  {
+    name: 'project 1',
+    title: 'E-society Administrator',
+    description: 'Managing Payments and Events',
+    projectLink: 'https://github.com/Thapelo-git/e-societyAdmin-master'
+  },
+  {
+    name: 'project 2',
+    title: 'Medico App',
+    description: 'Medico connects students with access to first aid and health measures',
+    projectLink: 'https://github.com/washington786/medico'
+  },
+  {
+    name: 'project 3',
+    title: 'Hotel App',
+    description: '#React Native',
+    projectLink: 'https://github.com/Thapelo-git/hotelApp'
+  }
+ 
+];
+
 const Projects = () => {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for next, -1 for previous
+  const [thumbOverflow, setThumbOverflow] = useState(false);
+  const thumbsContainerRef = useRef(null);
+  const activeProject = projectData[activeIdx];
 
-    const container ={
-        hidden:{},
-        visible:{
-            transition:{staggerChildren:0.2}
-        }
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (thumbsContainerRef.current) {
+        setThumbOverflow(thumbsContainerRef.current.scrollWidth > thumbsContainerRef.current.clientWidth);
+      }
+    };
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, []);
+
+  const scrollThumbs = (dir) => {
+    if (thumbsContainerRef.current) {
+      thumbsContainerRef.current.scrollBy({ left: dir * 120, behavior: 'smooth' });
     }
-    const projectVariant ={
-        hidden:{opacity:0,scale:0.8},
-        visible:{opacity:1,scale:1}
-    }
+  };
 
-    
-const Project = ({ name, title, description, projectLink }) => {
-  const projectTitle = name.split(" ").join("-").toLowerCase();
+  const handleNext = () => {
+    setDirection(1);
+    setActiveIdx(idx => (idx + 1) % projectData.length);
+  };
 
-  return (
-    <motion.div
-      className="relative flex flex-col items-center text-center p-4 group"
-    >
-      
-      <img
-        src={require(`../assets/${projectTitle}.jpg`)}
-        alt={projectTitle}
-        className="rounded-md shadow-lg"
-      />
+  const handlePrevious = () => {
+    setDirection(-1);
+    setActiveIdx(idx => (idx - 1 + projectData.length) % projectData.length);
+  };
 
-      
-      <div className="mt-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-        <p className="text-2xl font-playfair font-bold">{title}</p>
-        <p className="mt-2 text-sm text-gray-600">{description}</p>
-        <a
-          href={projectLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-block text-blue-600 font-semibold hover:underline"
+  const handleThumbnailClick = idx => {
+    setDirection(idx > activeIdx ? 1 : -1);
+    setActiveIdx(idx);
+  };
+
+  const cardVariants = {
+    initial: dir => ({
+      x: dir === 1 ? [0, -60, 0] : [0, 60, 0],
+      y: [-220, -100, 0],
+      opacity: [0, 0.6, 1]
+    }),
+    animate: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: 'easeInOut' }
+    },
+    exit: dir => ({
+      x: dir === 1 ? [-10, -160, -280] : [10, 160, 280],
+      y: [0, -80, -40],
+      opacity: [1, 0.6, 0],
+      transition: { duration: 0.6, ease: 'easeInOut' }
+    })
+  };
+
+  const Project = ({ name, title, description, projectLink }) => {
+    const projectTitle = name.split(" ").join("-").toLowerCase();
+    return (
+      <motion.div
+        key={name}
+        className="relative w-full max-w-6xl xl:max-w-7xl flex flex-col md:flex-row items-center text-center md:text-left p-6 md:p-10 group bg-white rounded-xl shadow-2xl"
+        variants={cardVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        custom={direction}
+      >
+        <div className="mb-6 md:mb-0 md:mr-10 w-full md:w-96 max-w-md flex-shrink-0 flex items-center justify-center" style={{ minHeight: 260 }}>
+          <motion.img
+            key={projectTitle}
+            src={require(`../assets/${projectTitle}.jpg`)}
+            alt={projectTitle}
+            className="rounded-md shadow-lg w-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ opacity: { duration: 0.25 } }}
+            style={{ minHeight: 220, maxHeight: 340 }}
+          />
+        </div>
+        <motion.div
+          className="flex-1 flex flex-col justify-center items-center md:items-start"
+          key={name + '-desc'}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.23, duration: 0.5 }}
         >
-          View Project
-        </a>
-      </div>
-    </motion.div>
-  );
-};
+          <p className="text-4xl md:text-5xl font-playfair font-bold mb-3 text-blue-800">{title}</p>
+          <p className="text-xl md:text-2xl text-gray-700 mb-5">{description}</p>
+          <a
+            href={projectLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-blue-600 font-semibold hover:underline text-xl"
+          >
+            View Project
+          </a>
+        </motion.div>
+      </motion.div>
+    );
+  };
 
+  const ProjectThumbnail = ({ project, isActive, onClick }) => {
+    const projectTitle = project.name.split(" ").join("-").toLowerCase();
+    return (
+      <button
+        onClick={onClick}
+        className={`flex flex-col items-center p-2 m-2 border rounded-lg focus:outline-none transition shadow-md border-gray-200 hover:border-blue-500 ${isActive ? 'ring-2 ring-blue-500 border-blue-400 bg-blue-50' : ''}`}
+        style={{ width: 100 }}
+      >
+        <img
+          src={require(`../assets/${projectTitle}.jpg`)}
+          alt={project.title}
+          className="w-16 h-16 object-cover rounded mb-1"
+        />
+        <span className="text-xs text-gray-700 font-semibold truncate w-full">{project.title}</span>
+      </button>
+    );
+  };
 
   return (
-    <section id='projects' className='pt-48 pb-48'>
-             <motion.div 
-                 className='md:w-2/4 mx-auto text-center'
-                initial="hidden" whileInView="visible" viewport={{once:true,amount:0.5}}
-                transition={{duration:0.5}} variants={{
-                    hidden:{opacity:0,y:-50},
-                    visible:{opacity:1,y:0}
-                }}>
-                    <div>
-                <p className='font-playfair font-semibold text-4xl '>
-                    <span className='text-red'>PRO</span>JECTS
-                </p>
-                <div className='flex justify-center mb-5'>
-                <LineGradient width='w-1/3'/>
-                </div>
-                </div>
-                
-                
-                </motion.div>
-                <div className='flex justify-center'>
-                <motion.div 
-                className='sm:grid sm:grid-cols-3'
-                initial='hidden'
-                whileInView='visible'
-                viewport={{once:true,amount:0.5}}
-                variants={container}
-                >
-                    <div
-                    className='flex justify-center text-center items-center
-                    p-10 bg-red max-w-[400px] max-h-[400px] text-2xl 
-                    font-playfair font-semibold '
-                    >
-                        USER INTERFACES
-                    </div>
-                    <Project 
-                    name='project 1'
-                    title="E-society Administrator"
-                    description='Managing Payments and Events'
-                    projectLink='https://github.com/Thapelo-git/e-societyAdmin-master'
-                    />
-                    
-                    <Project name="project 2"
-                       title="Medico App"
-                       description=' Medico connects students with access to first aid and health measures'
-                       projectLink='https://github.com/washington786/medico'/>
-
-                    <Project name="project 3"
-                    title="Hotel App"
-                    description='#React Native'
-                    projectLink='https://github.com/Thapelo-git/hotelApp'/>
-                    
-                    <Project name="project 5"
-                    title="Prison Management App"
-                    description='#React Native'
-                    projectLink='https://github.com/Thapelo-git/Prison_Management_System'/>
-                </motion.div>
-                {/* <div className="absolute top-0 left-0 w-full h-full z-0">
-        <Lottie animationData={smoke} />
-      </div> */}
-                </div>
-          
+    <section id='projects' className='pt-48 pb-48 flex flex-col items-center'>
+      <motion.div 
+        className='md:w-2/4 mx-auto text-center'
+        initial="hidden" whileInView="visible" viewport={{once:true,amount:0.5}}
+        transition={{duration:0.5}} variants={{
+          hidden:{opacity:0,y:-50},
+          visible:{opacity:1,y:0}
+        }}>
+        <div>
+          <p className='font-playfair font-semibold text-4xl '>
+            <span className='text-red'>PRO</span>JECTS
+          </p>
+          <div className='flex justify-center mb-5'>
+            <LineGradient width='w-1/3'/>
+          </div>
+        </div>
+      </motion.div>
+      <div className='flex flex-col items-center'>
+        <AnimatePresence mode="wait" initial={false}>
+          <Project key={activeProject.name} {...activeProject} />
+        </AnimatePresence>
+        <div className="flex flex-row gap-4 mt-8 mb-12">
+          <button
+            onClick={handlePrevious}
+            className="px-6 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors font-semibold shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNext}
+            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors font-semibold shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      {/* Thumbnails row with chevron scroll */}
+      <div className="w-full flex flex-col items-center mt-8 max-w-4xl">
+        <div className="w-full flex flex-row items-center justify-center">
+          {thumbOverflow && (
+            <button
+              aria-label="Scroll thumbnails left"
+              className="h-12 w-8 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-2xl font-bold mx-1"
+              onClick={() => scrollThumbs(-1)}
+              style={{ minWidth: 32 }}
+            >◀</button>
+          )}
+          <div
+            ref={thumbsContainerRef}
+            className="flex flex-row gap-2 w-full overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+            style={{scrollBehavior:'smooth'}}
+          >
+            {projectData.map((proj, idx) => (
+              <ProjectThumbnail
+                key={proj.name}
+                project={proj}
+                isActive={idx === activeIdx}
+                onClick={() => handleThumbnailClick(idx)}
+              />
+            ))}
+          </div>
+          {thumbOverflow && (
+            <button
+              aria-label="Scroll thumbnails right"
+              className="h-12 w-8 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-2xl font-bold mx-1"
+              onClick={() => scrollThumbs(1)}
+              style={{ minWidth: 32 }}
+            >▶</button>
+          )}
+        </div>
+      </div>
     </section>
-  )
+  );
 }
 
 export default Projects

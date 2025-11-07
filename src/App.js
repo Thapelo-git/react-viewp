@@ -10,6 +10,9 @@ import Contact from "./screens/Contact";
 import Footer from "./screens/Footer";
 import Line from './assets/line.json'
 import Lottie from "lottie-react";
+import DetailedProject from "./screens/DetailedProject";
+import ProjectSection from "./components/ProjectSection";
+import MovementFrame from "./screens/MovementFrame";
 function App() {
   const [selectedPage,setSelectedPage] = useState("home");
   const [isTopOfPage,setIsTopOfPage]=useState(true);
@@ -50,21 +53,29 @@ function App() {
     
     <Landing setSelectedPage={setSelectedPage}/>
     </div>
-    {/* <LineGradient/> */}
-    <Lottie animationData={Line}/>
-    <div className="w-5/6 mx-auto md:h-full ">
-    <MySkills/>
-    </div>
-   <Lottie animationData={Line}/>
-    <div className="w-5/6 mx-auto ">
     <Projects/>
-    </div>
-    <Lottie animationData={Line}/>
-    <div className="w-5/6 mx-auto ">
+     <div className="w-5/6 mx-auto ">
     <Contact/>
     </div>
-    <Lottie animationData={Line}/>
+   
     <Footer/>
+    
+    {/* <ProjectSection/> */}
+    {/* <DetailedProject/> */}
+    
+    {/* <div className="w-5/6 mx-auto md:h-full ">
+    <MySkills/>
+    </div> */}
+   {/* <Lottie animationData={Line}/>
+    <div className="w-5/6 mx-auto ">
+    <Projects/>
+    </div> */}
+    {/* <Lottie animationData={Line}/> */}
+    {/* <div className="w-5/6 mx-auto ">
+    <Contact/>
+    </div>
+   
+    <Footer/> */}
     </div>
   );
 }
