@@ -15,7 +15,7 @@ const SocialMediaIcons = () => {
             {/* <img alt='linkedin' src={Linkedin}/> */}
 
         </a>
-        <a
+        {/* <a
         className='hover:opacity-50 transition duration-500'
         href='https://web.facebook.com/thapelo.chaba.35/'
         target='_blank'
@@ -23,7 +23,7 @@ const SocialMediaIcons = () => {
 
         >
             <FacebookRounded fontSize='large'/>
-        </a>
+        </a> */}
         <a
         className='hover:opacity-50 transition duration-500'
         href='https://github.com/Thapelo-git'

@@ -1,42 +1,51 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import LineGradient from '../components/LineGradient'
-import Lottie from 'lottie-react'
-import smoke from '../assets/smoke.json'
+
+import { FaGithub } from 'react-icons/fa';
 
 //https://za.pinterest.com/pin/need-website-design-or-develop-website-than-hire-expert--955748352150434796/
 const projectData = [
-   {
+  {
     name: 'project 4',
     title: 'Movie App',
     description: 'A dynamic film discovery platform featuring trending movies, advanced search, and personalized watchlists. Built with modern frontend framework and TMDB API integration.',
-    projectLink: 'https://github.com/Thapelo-git/Prison_Management_System'
+    projectLink: 'https://github.com/Thapelo-git/Prison_Management_System',
+    technologies: ['React', 'TMDB API', 'TailwindCSS'],
+    languages: ['JavaScript']
   },
   {
     name: 'project 5',
     title: 'Recipe App',
     description: 'A full-stack recipe management app with user-generated content, interactive cooking instructions, and personal collections. Features secure authentication and image upload functionality.',
-    projectLink: 'https://github.com/Thapelo-git/Recipes-Web.git'
+    projectLink: 'https://github.com/Thapelo-git/Recipes-Web.git',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+    languages: ['JavaScript']
   },
   {
     name: 'project 1',
     title: 'E-society Administrator',
     description: 'Managing Payments and Events',
-    projectLink: 'https://github.com/Thapelo-git/e-societyAdmin-master'
+    projectLink: 'https://github.com/Thapelo-git/e-societyAdmin-master',
+    technologies: ['React', 'Firebase'],
+    languages: ['JavaScript']
   },
   {
     name: 'project 2',
     title: 'Medico App',
     description: 'Medico connects students with access to first aid and health measures',
-    projectLink: 'https://github.com/washington786/medico'
+    projectLink: 'https://github.com/washington786/medico',
+    technologies: ['React Native', 'Expo'],
+    languages: ['JavaScript']
   },
   {
     name: 'project 3',
     title: 'Hotel App',
-    description: '#React Native',
-    projectLink: 'https://github.com/Thapelo-git/hotelApp'
+    description: 'A mobile application that enables users to browse, book, and manage hotel reservations seamlessly. Built with React Native for smooth cross-platform performance and an intuitive user interface',
+    projectLink: 'https://github.com/Thapelo-git/hotelApp',
+    technologies: ['React Native', 'Redux'],
+    languages: ['JavaScript']
   }
- 
 ];
 
 const Projects = () => {
@@ -98,12 +107,12 @@ const Projects = () => {
     })
   };
 
-  const Project = ({ name, title, description, projectLink }) => {
+  const Project = ({ name, title, description, projectLink,technologies,languages }) => {
     const projectTitle = name.split(" ").join("-").toLowerCase();
     return (
       <motion.div
         key={name}
-        className="relative w-full max-w-6xl xl:max-w-7xl flex flex-col md:flex-row items-center text-center md:text-left p-6 md:p-10 group bg-white rounded-xl shadow-2xl"
+        className="relative w-full max-w-6xl xl:max-w-7xl flex flex-col md:flex-row items-center text-center md:text-left p-6 md:p-10 group bg-blue-300 rounded-xl shadow-2xl"
         variants={cardVariants}
         initial="initial"
         animate="animate"
@@ -129,16 +138,32 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.23, duration: 0.5 }}
         >
-          <p className="text-4xl md:text-5xl font-playfair font-bold mb-3 text-blue-800">{title}</p>
+          <p className="text-4xl md:text-5xl font-playfair font-bold mb-3 text-gray-400">{title}</p>
           <p className="text-xl md:text-2xl text-gray-700 mb-5">{description}</p>
-          <a
-            href={projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-block text-blue-600 font-semibold hover:underline text-xl"
-          >
-            View Project
-          </a>
+           <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-3">
+          {technologies.map((tech, i) => (
+            <span key={i} className="px-3 py-1 text-sm bg-gray-100 text-black rounded-full font-medium shadow-sm">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-5">
+          {languages.map((lang, i) => (
+            <span key={i} className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full font-medium shadow-sm">
+              {lang}
+            </span>
+          ))}
+        </div>
+        <a
+          href={projectLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-2 text-gray-600 font-semibold hover:underline text-xl"
+        >
+          <FaGithub className="text-2xl" /> View Project
+        </a>
+         
         </motion.div>
       </motion.div>
     );

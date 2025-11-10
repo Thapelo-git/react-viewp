@@ -81,7 +81,7 @@ const Landing = (setSelectedPage) => {
                 href="#contact">
                     Contact
                 </AnchorLink>
-                <div
+                {/* <div
                 className='rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5'
                  
        >
@@ -93,7 +93,7 @@ const Landing = (setSelectedPage) => {
     </a>
 
 
-                </div>
+                </div> */}
                 </motion.div>
            
                 <motion.div 
