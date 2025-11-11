@@ -25,7 +25,7 @@ const projectData = [
   {
     name: 'project 1',
     title: 'E-society Administrator',
-    description: 'Managing Payments and Events',
+    description: 'Efficiently manage payments and organize events with ease, Streamlined platform for handling payments and event management ',
     projectLink: 'https://github.com/Thapelo-git/e-societyAdmin-master',
     technologies: ['React', 'Firebase'],
     languages: ['JavaScript']
