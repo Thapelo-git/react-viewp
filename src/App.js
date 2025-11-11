@@ -1,22 +1,19 @@
 import Navbar from "./screens/Navbar"
-import DotGroup from "./screens/DotGroup";
+
 import Landing from "./screens/Landing";
-import LineGradient from './components/LineGradient'
+
 import { useEffect, useState } from "react";
-import useMediaQuery from "./hooks/useMediaQuery"
-import MySkills from "./screens/MySkills";
+
+
 import Projects from "./screens/Projects";
 import Contact from "./screens/Contact";
 import Footer from "./screens/Footer";
 import Line from './assets/line.json'
-import Lottie from "lottie-react";
-import DetailedProject from "./screens/DetailedProject";
-import ProjectSection from "./components/ProjectSection";
-import MovementFrame from "./screens/MovementFrame";
+
 function App() {
   const [selectedPage,setSelectedPage] = useState("home");
   const [isTopOfPage,setIsTopOfPage]=useState(true);
-  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)")
+
 
   useEffect(()=>{
     const handleScroll = () =>{
