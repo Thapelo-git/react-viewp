@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Profile from '../assets/Pro.jpeg'
 import SocialMediaIcons from '../components/SocialMediaIcons'
-import Back from '../assets/backAni.json'
+
 
 import steps from '../assets/steps.json'
 import Lottie from 'lottie-react'
