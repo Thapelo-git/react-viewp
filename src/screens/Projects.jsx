@@ -7,6 +7,14 @@ import { FaGithub } from 'react-icons/fa';
 //https://za.pinterest.com/pin/need-website-design-or-develop-website-than-hire-expert--955748352150434796/
 const projectData = [
     {
+    name: 'project 9',
+    title: 'Melula',
+    description: 'Melula is a digital platform designed to simplify communication and information management. It enables users to share updates, organise content, and access information efficiently through a clear and user-friendly interface.',
+    projectLink: 'https://assignmenthpage.vercel.app/',
+    technologies: ['React',  'TailwindCSS'],
+    languages: ['JavaScript']
+  },
+    {
     name: 'project 8',
     title: 'OHS Emergency',
     description: 'The OHS Emergency System is a digital safety platform designed to support rapid communication and response during workplace emergencies. It enables workers and supervisors to report incidents, receive alerts, and follow emergency procedures in real time.',
