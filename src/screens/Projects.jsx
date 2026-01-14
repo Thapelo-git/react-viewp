@@ -6,6 +6,30 @@ import { FaGithub } from 'react-icons/fa';
 
 //https://za.pinterest.com/pin/need-website-design-or-develop-website-than-hire-expert--955748352150434796/
 const projectData = [
+    {
+    name: 'project 8',
+    title: 'OHS Emergency',
+    description: 'The OHS Emergency System is a digital safety platform designed to support rapid communication and response during workplace emergencies. It enables workers and supervisors to report incidents, receive alerts, and follow emergency procedures in real time.',
+    projectLink: 'https://github.com/Thapelo-git/Prison_Management_System',
+    technologies: ['React',  'TailwindCSS'],
+    languages: ['JavaScript']
+  },
+  {
+    name: 'project 7',
+    title: 'Book application ',
+    description: 'The Books App is a digital platform designed to help users easily browse, manage, and access books. It provides a simple and organised way to view book information, track reading activity, and manage personal or shared book collections.',
+    projectLink: 'https://github.com/Thapelo-git/Prison_Management_System',
+    technologies: ['React',  'TailwindCSS'],
+    languages: ['JavaScript']
+  },
+  {
+    name: 'project 6',
+    title: 'Khayasafe ',
+    description: 'KhayaSafe is a communication and reporting system designed for mining operations to help miner workers share information clearly and efficiently. It enables real-time communication and structured reporting to support daily operations and improve workplace safety.',
+    projectLink: 'https://github.com/Thapelo-git/Prison_Management_System',
+    technologies: ['React', 'TailwindCSS'],
+    languages: ['JavaScript']
+  },
   {
     name: 'project 4',
     title: 'Movie App',
@@ -119,7 +143,9 @@ const Projects = () => {
         exit="exit"
         custom={direction}
       >
-        <div className="mb-6 md:mb-0 md:mr-10 w-full md:w-96 max-w-md flex-shrink-0 flex items-center justify-center" style={{ minHeight: 260 }}>
+        <div  className="mb-6 md:mb-0 md:mr-10 w-full md:w-1/2 max-w-none flex items-center justify-center"
+  style={{ minHeight: 260 }}
+        >
           <motion.img
             key={projectTitle}
             src={require(`../assets/${projectTitle}.jpg`)}
